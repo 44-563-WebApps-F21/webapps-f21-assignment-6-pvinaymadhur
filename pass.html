@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>
+        Assignment on javascript 
+     </title>
+ </head>
+<body>
+<header>
+    <h1>Pass phrase by Vinay</h1>
+</header>
+<h2>Validate input using javascript</h2>
+
+<form>
+    <label for="form1_secret"></label>Enter the secret phrase </label>
+    <input type ="password" id="form1_secret" name="form1_secret"  value="Let me in"> <br>
+
+    <label for="form1_phrase">Enter a phrase</label>
+    <input type ="text" id="form1_phrase" name="form1_phrase" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result"> </p>
+
+<script> 
+
+function processPhrase (){
+    console.log("Validate input using javascript");
+    var correct = 0;
+    var wrong = 0;
+    secret = document.getElementById("form1_secret").value;
+    phrase = document.getElementById("form1_phrase").value;
+    out = document.getElementById("result");
+    if(phrase === secret)
+    {
+        correct = correct+1;
+        alert("Access allowed");
+        out.innerHTML = "correct count: "+correct;
+    }
+    else{
+        wrong = wrong +1;
+        alert("Access denied");
+        out.innerHTML = "Wrong count: "+wrong;
+    }       
+    
+}
+</script>
+
+</body>
+</html> 
