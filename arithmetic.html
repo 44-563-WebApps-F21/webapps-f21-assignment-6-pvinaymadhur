@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithmetic Page</title>
+</head>
+
+<body>
+
+    <h1>Vinay computes</h1>
+    <form>
+        <label style="font-size: 20px; font-family: 'Times New Roman', Times, serif;" for="base_element_label">Enter a
+            base: </label>
+        <input style="margin-left: 93px;" type="number" id="base_element" name="base element" value=10>
+        <br /><br />
+
+        <label style="font-size: 20px; font-family: 'Times New Roman', Times, serif;" for="exponent_element_label">Enter
+            an exponent: </label>
+        <input style="margin-left: 45px;" type="number" id="exponent_element" name="exponent element" value=2>
+        <br /><br />
+
+        <input
+            style="background-color:turquoise; border-style: solid; border-radius: 4px; padding: 10px 24px; text-decoration: 10px solid;"
+            type="button" onclick="powers()" value="Compute"> <br /><br />
+
+        <p id="result1">The calculated values are displayed here</p>
+        <br />
+
+        <input type="radio" id="addition" name="arithmetic" value="addition" onclick="processRadio(this.value)">
+        <label for="addition">+</label><br />
+
+        <input type="radio" id="subtraction" name="arithmetic" value="subtraction" onclick="processRadio(this.value)">
+        <label for="subtraction">-</label><br />
+
+        <input type="radio" id="multiplication" name="arithmetic" value="multiplication" onclick="processRadio(this.value)">
+        <label for="multiplication">*</label><br />
+
+        <input type="radio" id="division" name="arithmetic" value="division" onclick="processRadio(this.value)">
+        <label for="division">/</label><br />
+        <p id="result2">The calculated values are displayed here</p>
+    </form>
+
+    <script>
+        function powers() {
+            var result1 = " ";
+            console.log("Getting the number values")
+            base = document.getElementById("base_element").value
+            exponent = document.getElementById("exponent_element").value
+            out = document.getElementById("result1");
+            for (i = 1; i <= exponent; i++) {
+                if (i < exponent) {
+                    result1 = result1 + Math.pow(base, i) + " , ";
+                }
+                else {
+                    result1 = result1 + Math.pow(base, i) + " . ";
+                }
+            }
+            out.innerHTML = "Powers of " + base + " are: " + result1;
+        }
+
+        function processRadio(type) {
+            let value = 0;
+            console.log("Getting input from radio buttons");
+            baseValue = document.getElementById("base_element").value;
+            exponentValue = document.getElementById("exponent_element").value;
+            out = document.getElementById("result2")
+            if(type =="addition"){
+                value = (Number(base) + Number(exponent)).toString();
+                out.innerHTML = "The value is: "+value;
+            } 
+            else if(type == "subtraction") {
+                value = (Number(base) - Number(exponent)).toString();
+                out.innerHTML = "The value is: "+value;
+            } 
+            else if(type == "multiplication") {
+                value = (Number(base) * Number(exponent)).toString();
+                out.innerHTML = "The value is: "+value;
+            }
+            else{
+                value = (Number(base) / Number(exponent)).toString();
+                out.innerHTML = "The value is: "+value;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
