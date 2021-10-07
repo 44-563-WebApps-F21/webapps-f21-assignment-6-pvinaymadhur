@@ -2,89 +2,73 @@
 <html>
 
 <head>
-    <title>Car Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>
+        Car 
+    </title>
+    <script>
+        let my_car;
+        function orderCar() {
+            electric = document.getElementById("electric").checked
+            ac = document.getElementById("ac").checked
+            gps = document.getElementById("gps").checked
+            my_car = electric + " and " + ac + " and " + gps;
+            document.getElementById("cresult").innerHTML = my_car;
+        }
+        function updateCar() {
+            color = document.getElementById("color").value;
+            property = document.getElementById("pvalue").value;
+            my_car = color + " and " + property;
+            document.getElementById("cresult").innerHTML = my_car;
+        }
+    </script>
+
 </head>
 
 <body>
-    <h2>Vinay orders a car</h2>
-    <form>
-        <input type="checkbox" name="electric" id="electric" />
-        <label for="electric"> electric</label><br />
-
-        <input type="checkbox" name="ac" id="ac" />
-        <label for="ac">ac</label><br />
-
-        <input type="checkbox" name="gps" id="gps" />
-        <label for="gps">gps</label><br /><br />
-
-        <input
-            style="background-color:blanchedalmond; border-style: solid; border-radius: 4px; padding: 7px 18px; text-decoration: 10px solid;"
-            type="button" onclick="orderCar()" value="Order a car" /><br />
-
-        <p id="result1">The checked values are displayed here</p><br /><br />
-
-        <label style="font-size: 20px; font-family: 'Times New Roman', Times, serif;" for="property_label">Enter a
-            property: </label>
-        <input style="margin-left: 45px;" type="text" id="property" name="property" value="color">
-        <br /><br />
-
-        <label style="font-size: 20px; font-family: 'Times New Roman', Times, serif;" for="value_label">Enter a value:
-        </label>
-        <input style="margin-left: 68px;" type="text" id="value" name="value"><br /><br />
-
-        <input
-            style="background-color:blanchedalmond; border-style: solid; border-radius: 4px; padding: 7px 15px; text-decoration: 10px solid;"
-            type="button" onclick="updateCar()" value="Update the car" /><br />
-
-        <p id="result2">The updated values are displayed here</p><br />
-    </form>
-
-
-    <script>
-        var my_car = {};
-        var test;
-        function orderCar() {
-            console.log("Getting the values")
-            var electric_checkbox = document.getElementById("electric").checked;
-            var ac_checkbox = document.getElementById("ac").checked;
-            var gps_checkbox = document.getElementById("gps").checked;
-            out = document.getElementById("result1");
-            if (electric_checkbox) {
-                my_car.electric_value = true;
-                console.log(my_car)
-            }
-            else {
-                my_car.electric_value = false;
-                console.log(my_car)
-            }
-            if (ac_checkbox) {
-                my_car.ac_value = true;
-                console.log(my_car)
-            }
-            else {
-                my_car.ac_value = false;
-                console.log(my_car)
-            }
-            if (gps_checkbox) {
-                my_car.gps_value = true;
-                console.log(my_car)
-            }
-            else {
-                my_car.gps_value = false;
-                console.log(my_car)
-            }
-            test = "The values are Electric: " + my_car.electric_value + ", ac: " + my_car.ac_value + ", gps: " + my_car.gps_value;
-            out.innerHTML = test;
-        }
-        function updateCar() {
-            var property = document.getElementById("property").value;
-            var value = document.getElementById("value").value;
-            var out1 = document.getElementById("result2");
-            my_car[property] = value;
-            console.log(my_car);
-            out1.innerHTML = test.concat(" , "+property+" : "+value);
-        }
-    </script>
+    <div class="container">
+        <h2>
+            <marquee style="color:teal; font-family: Georgia, 'Times New Roman', Times, serif;">"Vinay" orders a Car</marquee>
+        </h2>
+        <form>
+            <div class="row mb-3">
+                <div class="col-sm-10 offset-sm-2">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="electric" name="electric" value="electric">
+                        <label for="electric" class="form-check-label">Electric</label></br>
+                        <input type="checkbox" class="form-check-input" id="ac" name="ac" value="ac">
+                        <label for="ac" class="form-check-label">AC</label></br>
+                        <input type="checkbox" class="form-check-input" id="gps" name="gps" value="gps">
+                        <label for="gps" class="form-check-label">GPS</label></br>
+                    </div>
+                    <br>
+                    <input type="button" class="btn btn-primary" onclick="orderCar()" value="Order a car"><br><br>
+                    <div class="row mb-3">
+                        <label for="color" class="col-sm-2 col-form-label">Enter a property</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="color" name="color" value="color"><br>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="pvalue" class="col-sm-2 col-form-label">Enter a value</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="pvalue" name="pvalue"><br>
+                        </div>
+                    </div>
+                    <input type="button" class="btn btn-primary" onclick="updateCar()" value="Update the car">
+        </form><br>
+        <br>
+        <div class="fw-bold">Value are: <span id="cresult" style="background-color:cornsilk"> </span></div>
+    </div>
+<!-- <a href="hidden.html">Hidden page</a>
+        <br>
+<a href="arithmetic.html">Arithmetic</a> -->
 
 </body>
 
