@@ -47,12 +47,12 @@
             base = document.getElementById("base_element").value
             exponent = document.getElementById("exponent_element").value
             out = document.getElementById("result1");
-            for (i = 1; i <= exponent; i++) {
-                if (i < exponent) {
-                    result1 = result1 + Math.pow(base, i) + " , ";
+            for (j = 1; j <= exponent; j++) {
+                if (j < exponent) {
+                    result1 = result1 + Math.pow(base, j) + " , ";
                 }
                 else {
-                    result1 = result1 + Math.pow(base, i) + " . ";
+                    result1 = result1 + Math.pow(base, j) + " . ";
                 }
             }
             out.innerHTML = "Powers of " + base + " are: " + result1;
